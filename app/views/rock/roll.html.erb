@@ -1,0 +1,27 @@
+<h1 style="font-family: 'Poiret One', cursive;"><strong>Here are my TOP 5 Grooves<srong></h1>
+
+
+<table class ="table" >
+  <thead>
+    <tr>
+      <th>Song Name</th>
+	    <th>Rating</th>
+	    <th>Artist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.name %></td>
+        <td><%= song.rating %></td>
+        <td><%= song.artist.name %><td>
+        <td><%= link_to 'Artist Page', artist_path(song.artist.id) %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Music Line-up</h1>
+
+<p><%= link_to 'Add a Song', new_song_path, class: "glyphicon glyphicon-plus", style: "color: white;" %></p>
+
+
+  
+
+  <div class ="row">
+    <% @songs.each do |song| %>
+      <div class="col-md-6">
+        <div class ="well" style="height:250px; width:300px;">
+        <p style="font-size: 20px; font-family: 'Playfair Display', serif;"><em><strong><%= "#{song.name}" %></em></strong></p>
+        <p> <%= "#{song.rating} " %>our of 10</p>
+        <p>
+           <% "#{song.rating}".to_i.times do %>
+          <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+        </p>
+
+
+
+        <p>By:<strong><%= "#{song.artist.name}" %></strong></p>
+        <p>-------------------------------------------</p>
+        
+
+        <p><%= link_to '',  edit_song_path(song), class: "glyphicon glyphicon-pencil", style: "color: white;" %>
+        <%= link_to '', song, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-trash", style: "color: white;" %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
